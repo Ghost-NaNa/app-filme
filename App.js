@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, TouchableOpacity, TextInput, Image, FlatList } from "react-native";
 import { Feather } from '@expo/vector-icons';
 import styles from './style.js';
-import DATA from './movies';
+import DATA from './movies.js';
 import Cabecalho from './src/componentes/cabecalho/index.js';
 import Barradepesquisa  from './src/componentes/pesquisa/index.js';
 import CardsFilmes from './src/componentes/cardsFilmes.js/index.js';
