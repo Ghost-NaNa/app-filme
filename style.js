@@ -1,17 +1,10 @@
 import { StyleSheet, Appearance} from "react-native";
 
-const esquemaCor = Appearance.getColorScheme()
-console.log(esquemaCor)
-
-const cores = {
-    corBg: esquemaCor == 'dark'?  '#141a29' : 'white',
-    corTitulo: esquemaCor == 'dark'?  'white' : 'black',
-}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: cores.corBg,
+    backgroundColor: '#141a29',
     alignItems: 'center',
     paddingTop: 20
   },
@@ -63,4 +56,4 @@ const styles = StyleSheet.create({
 
 
 
-export default styles; cores;
+export default styles;

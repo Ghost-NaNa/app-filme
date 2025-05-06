@@ -2,11 +2,6 @@ import { StyleSheet, Dimensions, Appearance} from "react-native";
 
 // pra adaptar o container pra 3 colunas
 // desse jeito cada card ocupa 1/3 da tela
-
-import cores from "../../../style.js"
-
-
-
 const largura = Dimensions.get('window').width / 3
 
 
@@ -23,7 +18,7 @@ let estiloCard = StyleSheet.create({
         height: 'auto',
     },
     titulo: {
-        color: cores.corTitulo,
+        color: '#fff',
         fontWeight: 'bold',
         fontSize: 14,
         paddingTop: 8
