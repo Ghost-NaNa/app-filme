@@ -13,7 +13,7 @@ export default function CardsFilmes() {
                 <TouchableOpacity style={estiloCard.containerFilmes}>
                     <Image source={item.image} style={estiloCard.images} />
                     <Text style={estiloCard.titulo}> {item.nome} </Text>
-                    <Text style={estiloCard.textNota}> Nota: {item.nota} </Text>
+                    <Text style={estiloCard.textNota}> Avaliação no IMDB: {item.nota} </Text>
                 </TouchableOpacity>
             )}
         />

@@ -10,7 +10,7 @@ export default function Cabecalho() {
                 <TouchableOpacity>
                     <Feather name='menu' size={36} color="#fff" />
                 </TouchableOpacity>
-                <Text style={styles.textHeader}> Firmes </Text>
+                <Text style={styles.textHeader}> Filmes </Text>
             </View>
 
     );
