@@ -1,10 +1,18 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet, Dimensions, Appearance} from "react-native";
 
 // pra adaptar o container pra 3 colunas
 // desse jeito cada card ocupa 1/3 da tela
+
+import cores from "../../../style.js"
+
+
+
 const largura = Dimensions.get('window').width / 3
 
-const estiloCard = StyleSheet.create({
+
+
+
+let estiloCard = StyleSheet.create({
     containerFilmes: {
         paddingTop: 20,
         paddingBottom: 16,
@@ -15,7 +23,7 @@ const estiloCard = StyleSheet.create({
         height: 'auto',
     },
     titulo: {
-        color: '#fff',
+        color: cores.corTitulo,
         fontWeight: 'bold',
         fontSize: 14,
         paddingTop: 8
@@ -31,5 +39,9 @@ const estiloCard = StyleSheet.create({
         borderRadius: 8,
     }
 })
+
+// if (esquemaCor === 'dark'){
+//     estiloCard.titulo.color = 'red'
+// }
 
 export default estiloCard;
