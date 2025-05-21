@@ -14,5 +14,4 @@ export default function CardsFilmes({ titulo, nota, imagem }) {
             <Text style={estiloCard.textNota}> Avaliação no IMDB: {nota} </Text>
         </TouchableOpacity>
     )
-    r
 }

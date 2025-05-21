@@ -1,5 +1,6 @@
 import { View, Text, TouchableOpacity, Image } from "react-native-web";
 import { useRoute } from "@react-navigation/native";
+import estilo from "./style.js";
 
 export default function Detalhes() {
 
@@ -7,7 +8,7 @@ export default function Detalhes() {
 
     return (
         <View>
-            <Text> {route.params.titulo} </Text>
+            <Text style = {estilo.titulo}> {route.params.titulo} </Text>
             <View>
                 <Image source={route.params.imagem}>
             </Image>

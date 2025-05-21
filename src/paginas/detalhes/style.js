@@ -1,11 +1,13 @@
-import { View, Text } from "react-native-web";
+import { StyleSheet } from "react-native";
 
-export default function Home() {
+const estilo = StyleSheet.create(
+    {
+        titulo: {
+            fontSize: 25,
+            textAlign: 'center',
+            padding: '8px'
+        }
+    }
+)
 
-    return (
-        <View>
-            <Text>ESSA É A TELA HOME SWEET HOME</Text>
-        </View>
-    )
-
-}
+export default estilo;
