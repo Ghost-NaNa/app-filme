@@ -27,7 +27,7 @@ export default function Home() {
             keyExtractor={item => item.id}
             renderItem={({ item }) => (
               
-                <CardsFilmes titulo ={ item.nome} nota = {item.nota} imagem = {item.image}> </CardsFilmes>
+                <CardsFilmes titulo ={ item.nome} nota = {item.nota} imagem = {item.image} genero={item.genero} autor={item.autor} lancamento={item.dataLancamento} sinopse={item.sinopse}> </CardsFilmes>
             )}
         />
               

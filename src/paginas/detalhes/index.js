@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image } from "react-native-web";
+import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native-web";
 import { useRoute } from "@react-navigation/native";
 import estilo from "./style.js";
 
@@ -7,27 +7,35 @@ export default function Detalhes() {
     const route = useRoute();
 
     return (
-        <View>
+        <ScrollView style={estilo.container}>
             <Text style = {estilo.titulo}> {route.params.titulo} </Text>
-            <View>
-                <Image source={route.params.imagem}></Image>
+            <View style={estilo.imageContainer}>
+                <Image style={estilo.image} source={route.params.imagem}></Image>
 
-                <View>
+                <View style={estilo.detalhes}>
                     { /* genêro */ }
-                    <Text>triste</Text>
+                    <Text style={estilo.detalhesTexto}>Gênero: {route.params.genero}</Text>
 
                     { /* ano lançamento */}
-                    <Text> ontem  </Text>
+                    <Text style={estilo.detalhesTexto}> Data de lançamento: {route.params.lancamento}  </Text>
 
                     { /* autor */ }
-                    <Text> eu </Text>
+                    <Text style={estilo.detalhesTexto}>Autor: {route.params.autor}</Text>
 
                     { /* nota */}
-                    <Text> maior q 3 </Text>
+                    <Text style={estilo.detalhesTexto}>Nota: {route.params.nota}</Text>
                 </View>
 
             </View>
-        </View>
+            <View style={estilo.containerSinopse}>
+            <Text style = {estilo.titulo}> Sinopse </Text>
+
+
+                <Text style={estilo.detalhesTexto}> 
+                    {route.params.sinopse}
+                </Text>
+            </View>
+        </ScrollView>
     )
 
 }
