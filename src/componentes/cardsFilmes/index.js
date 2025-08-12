@@ -9,7 +9,7 @@ export default function CardsFilmes({ titulo, nota, imagem, genero, autor, lanca
 
     return (
         <TouchableOpacity style={estiloCard.containerFilmes} onPress={() => navigation.navigate("Detalhes", { titulo, nota, imagem, genero, autor, lancamento, sinopse })}>
-            <Image source={imagem} style={estiloCard.images} />
+            <Image source={{uri:`https://image.tmdb.org/t/p/original/${imagem}`}} style={estiloCard.images} />
             <Text style={estiloCard.titulo}> {titulo} </Text>
             <Text style={estiloCard.textNota}> Avaliação no IMDB: {nota} </Text>
         </TouchableOpacity>
