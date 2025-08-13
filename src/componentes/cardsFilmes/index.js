@@ -1,17 +1,41 @@
-import { Image, Text, TouchableOpacity, FlatList } from "react-native";
-import DATA from "../../../movies.js";
-import { useNavigation } from "@react-navigation/native";
-import estiloCard from "./estiloCards.js";
+import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native-web";
+import { useRoute } from "@react-navigation/native";
+import estilo from "./style.js";
 
-export default function CardsFilmes({ titulo, nota, imagem, genero, autor, lancamento, sinopse }) {
+export default function Detalhes() {
 
-    const navigation = useNavigation();
+    const route = useRoute();
 
     return (
-        <TouchableOpacity style={estiloCard.containerFilmes} onPress={() => navigation.navigate("Detalhes", { titulo, nota, imagem, genero, autor, lancamento, sinopse })}>
-            <Image source={{uri:`https://image.tmdb.org/t/p/original/${imagem}`}} style={estiloCard.images} />
-            <Text style={estiloCard.titulo}> {titulo} </Text>
-            <Text style={estiloCard.textNota}> Avaliação no IMDB: {nota} </Text>
-        </TouchableOpacity>
+        <ScrollView style={estilo.container}>
+            <Text style = {estilo.titulo}> {route.params.titulo} </Text>
+            <View style={estilo.imageContainer}>
+                <Image style={estilo.image} source={route.params.imagem}></Image>
+
+                <View style={estilo.detalhes}>
+                    { /* genêro */ }
+                    <Text style={estilo.detalhesTexto}>Gênero: {route.params.genero}</Text>
+
+                    { /* ano lançamento */}
+                    <Text style={estilo.detalhesTexto}> Data de lançamento: {route.params.lancamento}  </Text>
+
+                    { /* autor */ }
+                    <Text style={estilo.detalhesTexto}>Autor: {route.params.autor}</Text>
+
+                    { /* nota */}
+                    <Text style={estilo.detalhesTexto}>Nota: {route.params.nota}</Text>
+                </View>
+
+            </View>
+            <View style={estilo.containerSinopse}>
+            <Text style = {estilo.titulo}> Sinopse </Text>
+
+
+                <Text style={estilo.detalhesTexto}> 
+                    {route.params.sinopse}
+                </Text>
+            </View>
+        </ScrollView>
     )
+
 }
