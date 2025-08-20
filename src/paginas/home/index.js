@@ -1,4 +1,4 @@
-import { Text, View, Image, FlatList } from "react-native";
+import { Text, View, ScrollView, Image, FlatList } from "react-native";
 // import { Feather } from '@expo/vector-icons';
 import { Dimensions } from "react-native";
 
@@ -7,7 +7,6 @@ import Cabecalho from '../../componentes/cabecalho/index.js'
 import Barradepesquisa from '../../componentes/pesquisa/index.js'
 import CardsFilmes from '../../componentes/cardsFilmes/index.js'
 import { useState, useEffect } from "react";
-import { useSharedValue } from "react-native-reanimated";
 
 
 export default function Home() {
@@ -57,42 +56,50 @@ export default function Home() {
         buscaSeries();
     }, []);
     
-    const width = Dimensions.get('window').width;
-    const progress = useSharedValue(0);
-    
     return (
-        <View style={styles.container}>
-
-            <Cabecalho></Cabecalho>
-
-            <Barradepesquisa></Barradepesquisa>
-
+        <ScrollView style={styles.container}>
+            <Cabecalho />
+            <Barradepesquisa />
             <Text style={styles.textBanner}>Em Cartaz</Text>
             <Image style={styles.imageBanner} source={require('../../../imagens/totoro.jpg')} />
-
-
-
-            <FlatList
-                data={movies}
-                numColumns={3}
-                keyExtractor={item => item.id}
-                renderItem={({ item }) => (
-                    <CardsFilmes 
-                    titulo={item.title} 
-                    nota={(item.vote_average.toFixed(1))} 
-                    imagem={item.poster_path} 
-                    genero={item.genero} 
-                    autor={item.autor} 
-                    lancamento={item.dataLancamento} 
-                    sinopse={item.overview}> </CardsFilmes>
-                )}
-            />
-
-            
-                
-
-
-        </View>
+            {/* Adiciona ScrollView para permitir rolagem dos dois FlatList */}
+            <View style={{ flex: 1 }}>
+                <FlatList
+                    data={movies}
+                    numColumns={3}
+                    keyExtractor={item => item.id?.toString()}
+                    renderItem={({ item }) => (
+                        <CardsFilmes
+                            titulo={item.title}
+                            nota={item.vote_average?.toFixed(1)}
+                            imagem={item.poster_path}
+                            genero={item.genero}
+                            autor={item.autor}
+                            lancamento={item.dataLancamento}
+                            sinopse={item.overview}
+                        />
+                    )}
+                    ListHeaderComponent={<Text style={styles.textBanner}>Em Cartaz</Text>}
+                />
+                <Text style={styles.textBanner}>Séries Mais bem Avaliadas</Text>
+                <FlatList
+                    data={series}
+                    numColumns={3}
+                    keyExtractor={item => item.id?.toString()}
+                    renderItem={({ item }) => (
+                        <CardsFilmes
+                            titulo={item.name}
+                            nota={item.vote_average?.toFixed(1)}
+                            imagem={item.poster_path}
+                            genero={item.genero}
+                            autor={item.autor}
+                            lancamento={item.dataLancamento}
+                            sinopse={item.overview}
+                        />
+                    )}
+                />
+            </View>
+        </ScrollView>
     )
 
 }

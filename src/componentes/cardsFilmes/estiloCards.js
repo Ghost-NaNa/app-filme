@@ -15,6 +15,7 @@ let estiloCard = StyleSheet.create({
         paddingLeft: 8,
         alignItems: 'center',
         width: largura,
+        minHeight: 250,
         height: 'auto',
     },
     titulo: {
@@ -30,7 +31,7 @@ let estiloCard = StyleSheet.create({
     },
     images: {
         width: '100%',
-        height: 190,
+        height: 220,
         borderRadius: 8,
     }
 })

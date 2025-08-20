@@ -5,7 +5,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#141a29',
-    alignItems: 'center',
     paddingTop: 20
   },
   viewHeader: {
@@ -29,8 +28,9 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   imageBanner: {
-    width: '50%',
-    height: '40%',
+    alignSelf: 'center',
+    width:  256,
+    height: 256,
     borderRadius: 10,
     marginBottom: 20,
   },
