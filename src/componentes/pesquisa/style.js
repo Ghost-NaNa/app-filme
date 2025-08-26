@@ -13,8 +13,6 @@ const estilo = StyleSheet.create({
         width: '100%',
         height: 40,
     },
-}
-
-);
+});
 
 export default estilo;
