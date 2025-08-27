@@ -1,12 +1,14 @@
 import {StyleSheet} from 'react-native'
+import { Dimensions } from 'react-native'
 
+const largura = Dimensions.get('screen').width
 const styles = StyleSheet.create({
 
     viewHeader: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        width: '90%',
+        width: largura - 20,
         marginBottom: 10,
       },
       textHeader: {

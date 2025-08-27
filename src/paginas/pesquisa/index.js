@@ -1,7 +1,7 @@
-import { Text, View } from "react-native-web";
+import { FlatList, Text, View, ScrollView, SafeAreaView } from "react-native-web";
 import { useRoute } from "@react-navigation/native";
 import { useEffect, useState } from "react";
-
+import CardsFilmes from "../../componentes/cardsFilmes";
 export default function PesquisaFilmes() {
 
     const [filmes, setFilmes] = useState([]);
@@ -20,6 +20,7 @@ export default function PesquisaFilmes() {
             const data = await response.json();
 
             console.log(data.results);
+            setFilmes(data.results);
         }
 
         buscarFilmes();
@@ -27,11 +28,26 @@ export default function PesquisaFilmes() {
 
     const route = useRoute();
     return (
-        <View>
+        <SafeAreaView>
+            <ScrollView>
+                <FlatList
+                    data={filmes}
+                    numColumns={3}
+                    keyExtractor={item => item.id?.toString()}
+                    renderItem={({ item }) => (
+                        <CardsFilmes
+                            titulo={item.title}
+                            nota={item.vote_average?.toFixed(1)}
+                            imagem={item.poster_path}
+                            genero={item.genero}
+                            autor={item.autor}
+                            lancamento={item.dataLancamento}
+                            sinopse={item.overview}
+                        />
+                    )}
+                />
 
-            
-            <Text>Pesquisa: {route.params.pesquisa}</Text>
-
-        </View>
+            </ScrollView>
+        </SafeAreaView>
     )
 }

@@ -62,7 +62,6 @@ export default function Home() {
             <Barradepesquisa />
             <Text style={styles.textBanner}>Em Cartaz</Text>
             <Image style={styles.imageBanner} source={require('../../../imagens/totoro.jpg')} />
-            {/* Adiciona ScrollView para permitir rolagem dos dois FlatList */}
             <View style={{ flex: 1 }}>
                 <FlatList
                     data={movies}
@@ -73,9 +72,9 @@ export default function Home() {
                             titulo={item.title}
                             nota={item.vote_average?.toFixed(1)}
                             imagem={item.poster_path}
-                            genero={item.genero}
+                            nomeOriginal={item.original_title}
                             autor={item.autor}
-                            lancamento={item.dataLancamento}
+                            lancamento={item.release_date}
                             sinopse={item.overview}
                         />
                     )}
@@ -91,9 +90,9 @@ export default function Home() {
                             titulo={item.name}
                             nota={item.vote_average?.toFixed(1)}
                             imagem={item.poster_path}
-                            genero={item.genero}
+                            nomeOriginal={item.original_name}
                             autor={item.autor}
-                            lancamento={item.dataLancamento}
+                            lancamento={item.first_air_date}
                             sinopse={item.overview}
                         />
                     )}

@@ -6,15 +6,17 @@ export default function Detalhes() {
 
     const route = useRoute();
 
+    console.log(route.params)
+
     return (
         <ScrollView style={estilo.container}>
             <Text style = {estilo.titulo}> {route.params.titulo} </Text>
             <View style={estilo.imageContainer}>
-                <Image style={estilo.image} source={route.params.imagem}></Image>
+                <Image style={estilo.image} source={{uri: `https://image.tmdb.org/t/p/w500${route.params.imagem}`}}></Image>
 
                 <View style={estilo.detalhes}>
                     { /* genêro */ }
-                    <Text style={estilo.detalhesTexto}>Gênero: {route.params.genero}</Text>
+                    <Text style={estilo.detalhesTexto}>Nome original: {route.params.nomeOriginal}</Text>
 
                     { /* ano lançamento */}
                     <Text style={estilo.detalhesTexto}> Data de lançamento: {route.params.lancamento}  </Text>
