@@ -2,6 +2,8 @@ import { FlatList, Text, View, ScrollView, SafeAreaView } from "react-native-web
 import { useRoute } from "@react-navigation/native";
 import { useEffect, useState } from "react";
 import CardsFilmes from "../../componentes/cardsFilmes";
+import estiloPesquisa from "./style.js";
+
 export default function PesquisaFilmes() {
 
     const [filmes, setFilmes] = useState([]);
@@ -28,7 +30,7 @@ export default function PesquisaFilmes() {
 
     const route = useRoute();
     return (
-        <SafeAreaView>
+        <SafeAreaView style={estiloPesquisa.container}>
             <ScrollView>
                 <FlatList
                     data={filmes}
